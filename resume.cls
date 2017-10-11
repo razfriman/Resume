@@ -7,7 +7,13 @@
 %-----------------------------------------------------------------------	-----------------
 
 \RequirePackage[quiet]{fontspec}
-\RequirePackage[sfdefault]{ClearSans}
+
+\setmainfont [ 	Path = fonts/,
+						Extension = .otf,
+						UprightFont = SF-Pro-Text-Regular,
+						BoldFont = SF-Pro-Text-Bold,
+						ItalicFont = SF-Pro-Text-RegularItalic
+					] {sfprotext}
 
 \def\arrow#1{\pspicture[shift=2pt](#1,0)\psline{->}(#1,0)\endpspicture}
 
@@ -58,69 +64,31 @@
 %----------------------------------------------------------------------------------------
 %	 COLOURS
 %----------------------------------------------------------------------------------------
-
+\definecolor{black}{RGB}{0,0,0}
 \definecolor{white}{RGB}{255,255,255}
 \definecolor{gray}{HTML}{4D4D4D}
+\definecolor{grayalt}{HTML}{575757}
 \definecolor{profilecolor}{HTML}{C7C7C7}
 \definecolor{sidecolor}{HTML}{E7E7E7}
-\definecolor{mainblue}{HTML}{0E5484}
 \definecolor{maingray}{HTML}{B9B9B9}
-
-\definecolor{pblue}{HTML}{0395DE}
-
 \definecolor{darkgray}{HTML}{333333}
-\definecolor{gray}{HTML}{4D4D4D}
 \definecolor{lightgray}{HTML}{999999}
-\definecolor{green}{HTML}{C2E15F}
-\definecolor{orange}{HTML}{FDA333}
-\definecolor{purple}{HTML}{D3A4F9}
-\definecolor{red}{HTML}{FB4485}
-\definecolor{blue}{HTML}{6CE0F1}
-\definecolor{pblue}{HTML}{0395DE}
-\definecolor{materialpurple}{HTML}{9C27B0}
-\definecolor{materialindigo}{HTML}{3F51B5}
-\definecolor{materialblue}{HTML}{2196F3}
-\definecolor{materialcyan}{HTML}{00BCD4}
-\definecolor{materialteal}{HTML}{009688}
-\definecolor{materialgreen}{HTML}{4CAF50}
-\definecolor{materiallime}{HTML}{CDDC39}
-\definecolor{materialamber}{HTML}{FFC107}
-\definecolor{materialbrown}{HTML}{795548}
-\definecolor{materialred}{HTML}{FF4436}
-\definecolor{materialorange}{HTML}{FF5722}
-\definecolor{linkedin}{HTML}{0085AE}
-\definecolor{test}{HTML}{0077be}
-\definecolor{yt}{HTML}{c71610}
 
-\ifdefined\@cv@print
-\colorlet{green}{gray}
-\colorlet{orange}{gray}
-\colorlet{purple}{gray}
-\colorlet{red}{gray}
-\colorlet{blue}{gray}
 \colorlet{fillheader}{white}
 \colorlet{header}{gray}
-\else
-\colorlet{fillheader}{white}
-\colorlet{header}{gray}
-\fi
-\colorlet{textcolor}{gray}
+\colorlet{textcolor}{black}
 \colorlet{headercolor}{gray}
 
 %----------------------------------------------------------------------------------------
 %	 MISC CONFIGURATIONS
 %----------------------------------------------------------------------------------------
-
-% \renewcommand{\bfseries}{\color{black}} % Make \textbf produce coloured text instead
-
 \pagestyle{empty} % Disable headers and footers
-
 \setlength{\parindent}{0pt} % Disable paragraph indentation
 
 % --------------------------------------------------------------------------------------
 % 	FONTS
 %-------------------------------------------------------------------------------------
-\newfontfamily\headingfont[Path = fonts/]{Montserrat-Regular.ttf}
+\newfontfamily\headingfont[Path = fonts/]{SF-Pro-Text-Regular.otf}
 
 %----------------------------------------------------------------------------------------
 %	 SIDEBAR DEFINITIONS
@@ -148,6 +116,18 @@
 
 % Command for printing the contact information icons
 \newcommand*\icon[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=1pt, fill=mainblue,mainblue,text=white] (char) {#1};}}
+
+% Command for project languages
+\newcommand\projectlanguage[1]{\color{grayalt}{\emph{#1}}}
+
+
+\newcommand\project[3]{
+\textbf{#1} {\projectlanguage{#2}}
+\begin{itemize}
+	\item #3
+\end{itemize}
+}
+
 
 
 %----------------------------------------------------------------------------------------
