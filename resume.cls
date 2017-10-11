@@ -1,4 +1,4 @@
-\ProvidesClass{twentysecondcv}[2015/02/28 CV class]
+\ProvidesClass{resume}
 \LoadClass{article}
 \NeedsTeXFormat{LaTeX2e}
 
@@ -12,7 +12,7 @@
 \def\arrow#1{\pspicture[shift=2pt](#1,0)\psline{->}(#1,0)\endpspicture}
 
 \usepackage{pstricks}
-
+\usepackage{fontspec}
 \usepackage{fontawesome}
 \RequirePackage{tikz}
 \RequirePackage{xcolor}
